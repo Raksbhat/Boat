@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Honnavar Boating Services — Backwater Escapes</title>
+  <meta name="description" content="Experience the untouched backwaters of Honnavar with premium boating services, river-facing rooms, and authentic coastal adventures. Book now: +91 84310 23964"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300;1,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --teal:    #1a6b6b;
+      --teal-lt: #2a9d8f;
+      --gold:    #c9a84c;
+      --sand:    #f5efe6;
+      --ink:     #0e1f1f;
+      --mist:    #e8f0ef;
+      --white:   #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--sand);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 4rem;
+      transition: background .4s ease, padding .4s ease, box-shadow .4s;
+    }
+    nav.scrolled {
+      background: rgba(14,31,31,.95);
+      backdrop-filter: blur(12px);
+      padding: 1rem 4rem;
+      box-shadow: 0 2px 30px rgba(0,0,0,.3);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 600;
+      font-size: 1.5rem; color: var(--white);
+      text-decoration: none; letter-spacing: .02em;
+    }
+    .nav-logo span { color: var(--gold); font-style: normal; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,.85); text-decoration: none;
+      font-size: .85rem; letter-spacing: .1em; text-transform: uppercase;
+      font-weight: 500; transition: color .2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--gold); transition: width .3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--gold); color: var(--ink) !important;
+      padding: .55rem 1.4rem; border-radius: 2px;
+      font-weight: 500 !important;
+      transition: background .2s, transform .2s !important;
+    }
+    .nav-cta:hover { background: #e0ba60 !important; transform: translateY(-1px); }
+    .nav-cta::after { display: none !important; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative; height: 100vh; min-height: 600px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .hero-video-wrapper {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #0e2b2b 0%, #1a4a4a 40%, #0e3a2a 100%);
+    }
+    /* Water shimmer animation for placeholder */
+    .hero-video-wrapper::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: 
+        radial-gradient(ellipse 80% 60% at 50% 80%, rgba(42,157,143,.25) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 20% 60%, rgba(26,107,107,.2) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 30% at 80% 40%, rgba(201,168,76,.08) 0%, transparent 50%);
+      animation: shimmer 8s ease-in-out infinite alternate;
+    }
+    @keyframes shimmer {
+      0%   { opacity: .6; transform: scale(1); }
+      100% { opacity: 1;  transform: scale(1.05); }
+    }
+    /* Wave lines */
+    .hero-video-wrapper::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 60px,
+        rgba(255,255,255,.02) 60px,
+        rgba(255,255,255,.02) 61px
+      );
+    }
+    #hero-video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: .7;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom,
+        rgba(14,31,31,.3) 0%,
+        rgba(14,31,31,.1) 40%,
+        rgba(14,31,31,.6) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 0 2rem;
+      animation: fadeUp .9s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow {
+      font-size: .75rem; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--gold); font-weight: 500; margin-bottom: 1.2rem;
+      animation: fadeUp .9s .15s ease both;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      color: var(--white); line-height: 1.05;
+      font-weight: 400; margin-bottom: .6rem;
+      animation: fadeUp .9s .25s ease both;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      color: rgba(255,255,255,.75); margin-bottom: 2.8rem;
+      animation: fadeUp .9s .35s ease both;
+    }
+    .hero-actions {
+      display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;
+      animation: fadeUp .9s .45s ease both;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: var(--gold); color: var(--ink);
+      padding: .9rem 2.2rem; border-radius: 2px;
+      font-weight: 500; font-size: .9rem; letter-spacing: .08em;
+      text-transform: uppercase; text-decoration: none;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 20px rgba(201,168,76,.35);
+    }
+    .btn-primary:hover { background: #e0ba60; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,.45); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: .6rem;
+      border: 1.5px solid rgba(255,255,255,.6); color: var(--white);
+      padding: .9rem 2.2rem; border-radius: 2px;
+      font-size: .9rem; letter-spacing: .08em; text-transform: uppercase;
+      text-decoration: none; transition: border-color .2s, background .2s;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: .6rem;
+      animation: fadeUp .9s .6s ease both;
+    }
+    .hero-scroll span {
+      font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+    }
+    .scroll-line {
+      width: 1px; height: 50px; background: linear-gradient(to bottom, rgba(255,255,255,.5), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%,100% { opacity: .4; transform: scaleY(.8); }
+      50%      { opacity: 1; transform: scaleY(1); }
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--ink);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .stat-item {
+      padding: 2rem; text-align: center;
+      border-right: 1px solid rgba(255,255,255,.06);
+      transition: background .2s;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: rgba(255,255,255,.03); }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; color: var(--gold); font-weight: 700;
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(255,255,255,.45); margin-top: .4rem;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 7rem 4rem; }
+    .section-tag {
+      font-size: .72rem; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--teal-lt); font-weight: 500; margin-bottom: .8rem;
+      display: flex; align-items: center; gap: .8rem;
+    }
+    .section-tag::before {
+      content: ''; width: 30px; height: 1px; background: var(--teal-lt);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400; line-height: 1.15; color: var(--ink);
+    }
+    .section-title em { font-style: italic; color: var(--teal); }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--white);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;
+      align-items: center;
+    }
+    .about-text .section-title { margin-bottom: 1.8rem; }
+    .about-text p {
+      font-size: 1.05rem; line-height: 1.85;
+      color: rgba(14,31,31,.7); margin-bottom: 1.4rem;
+    }
+    .about-highlights {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;
+    }
+    .highlight-card {
+      border: 1px solid var(--mist); padding: 1.2rem;
+      border-radius: 4px; transition: border-color .2s, box-shadow .2s;
+    }
+    .highlight-card:hover { border-color: var(--teal-lt); box-shadow: 0 4px 20px rgba(42,157,143,.1); }
+    .highlight-icon { font-size: 1.4rem; margin-bottom: .5rem; }
+    .highlight-title { font-size: .85rem; font-weight: 500; color: var(--ink); }
+    .highlight-desc { font-size: .8rem; color: rgba(14,31,31,.55); margin-top: .2rem; }
+    .about-visual {
+      position: relative;
+    }
+    .about-img-main {
+      width: 100%; aspect-ratio: 4/5; object-fit: cover;
+      border-radius: 4px;
+      background: linear-gradient(135deg, #1a4a4a, #2a9d8f);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .img-placeholder {
+      width: 100%; aspect-ratio: 4/5;
+      background: linear-gradient(135deg, #c8e6e6 0%, #a8d4d0 50%, #1a6b6b 100%);
+      border-radius: 4px;
+      position: relative; overflow: hidden;
+    }
+    .img-placeholder::after {
+      content: '🚣';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%); font-size: 4rem; opacity: .3;
+    }
+    .about-badge {
+      position: absolute; bottom: -1.5rem; left: -1.5rem;
+      background: var(--gold); color: var(--ink);
+      padding: 1.2rem 1.5rem; border-radius: 4px;
+      box-shadow: 0 8px 30px rgba(201,168,76,.3);
+    }
+    .badge-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700; line-height: 1;
+    }
+    .badge-txt { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; opacity: .8; }
+
+    /* ── EXPERIENCES ── */
+    #experiences { background: var(--sand); }
+    .experiences-header {
+      text-align: center; max-width: 600px; margin: 0 auto 4rem;
+    }
+    .experiences-header .section-tag { justify-content: center; }
+    .experiences-header .section-tag::before { display: none; }
+    .exp-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+    .exp-card {
+      background: var(--white); border-radius: 6px; overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+      box-shadow: 0 2px 12px rgba(14,31,31,.06);
+    }
+    .exp-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(14,31,31,.12); }
+    .exp-img {
+      width: 100%; aspect-ratio: 3/2;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3rem; position: relative; overflow: hidden;
+    }
+    .exp-img.boat    { background: linear-gradient(135deg, #1a4a4a, #2a9d8f); }
+    .exp-img.sunset  { background: linear-gradient(135deg, #c9622a, #c9a84c); }
+    .exp-img.fishing { background: linear-gradient(135deg, #1a3a6a, #2a6fad); }
+    .exp-img.bird    { background: linear-gradient(135deg, #2a5a2a, #4a9d4a); }
+    .exp-img.sunrise { background: linear-gradient(135deg, #6a2a6a, #c9622a); }
+    .exp-img.mangrove{ background: linear-gradient(135deg, #1a4a1a, #2a9d6a); }
+    .exp-img span { font-size: 3rem; opacity: .7; }
+    .exp-badge {
+      position: absolute; top: 1rem; right: 1rem;
+      background: var(--gold); color: var(--ink);
+      font-size: .68rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; padding: .3rem .7rem; border-radius: 2px;
+    }
+    .exp-body { padding: 1.5rem; }
+    .exp-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem; font-weight: 400; margin-bottom: .6rem;
+    }
+    .exp-desc { font-size: .85rem; line-height: 1.7; color: rgba(14,31,31,.6); margin-bottom: 1rem; }
+    .exp-meta {
+      display: flex; gap: 1rem; font-size: .75rem;
+      color: rgba(14,31,31,.5); border-top: 1px solid var(--mist); padding-top: 1rem;
+    }
+    .exp-meta span { display: flex; align-items: center; gap: .3rem; }
+
+    /* ── GALLERY ── */
+    #gallery { background: var(--ink); padding: 7rem 4rem; }
+    #gallery .section-tag { color: var(--gold); }
+    #gallery .section-tag::before { background: var(--gold); }
+    #gallery .section-title { color: var(--white); margin-bottom: .5rem; }
+    #gallery .gallery-intro { color: rgba(255,255,255,.4); font-size:.9rem; margin-bottom: 3rem; font-style: italic; }
+
+    /* Row 1: video hero (wide) + tall portrait */
+    /* Row 2: 3 equal squares */
+    /* Row 3: tall portrait + wide landscape */
+    /* Row 4: 3 equal squares */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 320px 260px 320px 260px;
+      gap: 10px;
+    }
+
+    /* Row 1 */
+    .gi-1  { grid-column: 1 / 9;  grid-row: 1; }   /* video — wide */
+    .gi-2  { grid-column: 9 / 13; grid-row: 1; }   /* portrait */
+
+    /* Row 2 */
+    .gi-3  { grid-column: 1 / 5;  grid-row: 2; }
+    .gi-4  { grid-column: 5 / 9;  grid-row: 2; }
+    .gi-5  { grid-column: 9 / 13; grid-row: 2; }
+
+    /* Row 3 */
+    .gi-6  { grid-column: 1 / 5;  grid-row: 3; }
+    .gi-7  { grid-column: 5 / 13; grid-row: 3; }   /* wide */
+
+    /* Row 4 */
+    .gi-8  { grid-column: 1 / 5;  grid-row: 4; }
+    .gi-9  { grid-column: 5 / 9;  grid-row: 4; }
+    .gi-10 { grid-column: 9 / 13; grid-row: 4; }
+
+    .gallery-item {
+      overflow: hidden; border-radius: 10px;
+      cursor: pointer; position: relative;
+    }
+    .gallery-item img,
+    .gallery-item video {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      transition: transform .5s cubic-bezier(.4,0,.2,1);
+    }
+    .gallery-item:hover img,
+    .gallery-item:hover video { transform: scale(1.07); }
+
+    /* Dark overlay on hover */
+    .gallery-item::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: rgba(14,31,31,0);
+      transition: background .35s; border-radius: 10px;
+    }
+    .gallery-item:hover::before { background: rgba(14,31,31,.25); }
+
+    /* Label — always visible at bottom */
+    .gallery-label {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+      padding: 2rem 1.2rem .9rem;
+      background: linear-gradient(to top, rgba(14,31,31,.9) 0%, transparent 100%);
+      color: var(--white);
+      font-size: .72rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase;
+      transform: translateY(6px); opacity: 0;
+      transition: transform .3s, opacity .3s;
+      border-radius: 0 0 10px 10px;
+    }
+    .gallery-item:hover .gallery-label { transform: translateY(0); opacity: 1; }
+
+    /* Video badge */
+    .gallery-video-badge {
+      position: absolute; top: 1rem; left: 1rem; z-index: 3;
+      background: rgba(14,31,31,.65); color: var(--gold);
+      font-size: .65rem; font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; padding: .3rem .8rem; border-radius: 20px;
+      display: flex; align-items: center; gap: .4rem;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(201,168,76,.3);
+    }
+
+    /* ── MOBILE GALLERY ── */
+    @media (max-width: 900px) {
+      #gallery { padding: 5rem 1.2rem; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: none;
+        gap: 8px;
+      }
+      .gi-1  { grid-column: 1 / 3; grid-row: auto; aspect-ratio: 16/9; }
+      .gi-2, .gi-3, .gi-4, .gi-5,
+      .gi-6, .gi-7, .gi-8, .gi-9, .gi-10 {
+        grid-column: auto; grid-row: auto; aspect-ratio: 1;
+      }
+      .gi-7  { grid-column: 1 / 3; aspect-ratio: 16/9; }
+      .gallery-item { height: auto !important; }
+      .gallery-label { transform: translateY(0); opacity: 1; }
+    }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; gap: 8px; }
+      .gi-1, .gi-7 { grid-column: 1; aspect-ratio: 16/9; }
+      .gi-2, .gi-3, .gi-4, .gi-5,
+      .gi-6, .gi-8, .gi-9, .gi-10 { grid-column: 1; aspect-ratio: 4/3; }
+    }
+
+    /* ── ROOMS ── */
+    #rooms { background: var(--white); }
+    .rooms-header { margin-bottom: 3.5rem; }
+    .rooms-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .room-card {
+      border: 1px solid var(--mist); border-radius: 6px; overflow: hidden;
+      transition: box-shadow .3s, transform .3s;
+    }
+    .room-card:hover { box-shadow: 0 12px 40px rgba(14,31,31,.1); transform: translateY(-4px); }
+    .room-img {
+      width: 100%; aspect-ratio: 3/2;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+    }
+    .room-img.r1 { background: linear-gradient(135deg, #1a3a4a, #2a6f7f); }
+    .room-img.r2 { background: linear-gradient(135deg, #2a3a1a, #4a7f2a); }
+    .room-img.r3 { background: linear-gradient(135deg, #3a1a1a, #7f4a2a); }
+    .room-body { padding: 1.5rem; }
+    .room-type {
+      font-size: .7rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--teal-lt); font-weight: 500; margin-bottom: .4rem;
+    }
+    .room-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 400; margin-bottom: .8rem;
+    }
+    .room-amenities {
+      display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.2rem;
+    }
+    .amenity {
+      font-size: .72rem; background: var(--mist);
+      padding: .3rem .7rem; border-radius: 20px; color: rgba(14,31,31,.65);
+    }
+    .room-price {
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid var(--mist); padding-top: 1.2rem;
+    }
+    .price-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: var(--teal); font-weight: 700;
+    }
+    .price-night { font-size: .75rem; color: rgba(14,31,31,.45); }
+    .room-btn {
+      background: var(--teal); color: var(--white);
+      padding: .55rem 1.2rem; border-radius: 2px;
+      font-size: .78rem; text-decoration: none; letter-spacing: .06em;
+      text-transform: uppercase; transition: background .2s;
+    }
+    .room-btn:hover { background: var(--teal-lt); }
+
+    /* ── WHY US ── */
+    #why {
+      background: var(--teal);
+      color: var(--white);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+    }
+    #why .section-tag { color: var(--gold); }
+    #why .section-tag::before { background: var(--gold); }
+    #why .section-title { color: var(--white); margin-bottom: 1.5rem; }
+    #why p { color: rgba(255,255,255,.75); line-height: 1.8; font-size: 1rem; margin-bottom: 2rem; }
+    .why-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+    .why-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1rem; background: rgba(255,255,255,.07);
+      border-radius: 4px; border-left: 3px solid var(--gold);
+    }
+    .why-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: .1rem; }
+    .why-text strong { display: block; font-weight: 500; font-size: .92rem; }
+    .why-text span { font-size: .82rem; opacity: .7; }
+    .why-visual {
+      position: relative;
+    }
+    .why-img-block {
+      width: 100%; aspect-ratio: 4/5;
+      background: rgba(255,255,255,.08);
+      border-radius: 6px; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+    }
+    .why-stat-float {
+      position: absolute; top: 2rem; right: -2rem;
+      background: var(--gold); color: var(--ink);
+      padding: 1.2rem 1.5rem; border-radius: 4px;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,.2);
+    }
+    .why-stat-float .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; }
+    .why-stat-float .stat-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--sand); text-align: center; }
+    #testimonials .section-tag { justify-content: center; }
+    #testimonials .section-tag::before { display: none; }
+    #testimonials .section-title { margin-bottom: 3.5rem; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .testi-card {
+      background: var(--white); padding: 2rem; border-radius: 6px;
+      text-align: left; position: relative;
+      box-shadow: 0 2px 12px rgba(14,31,31,.05);
+      transition: box-shadow .3s;
+    }
+    .testi-card:hover { box-shadow: 0 8px 30px rgba(14,31,31,.1); }
+    .testi-quote {
+      font-size: 3rem; line-height: 1; color: var(--gold);
+      font-family: 'Playfair Display', serif; margin-bottom: .5rem;
+    }
+    .testi-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 1.1rem; line-height: 1.7;
+      color: rgba(14,31,31,.75); margin-bottom: 1.5rem;
+    }
+    .testi-stars { color: var(--gold); font-size: .9rem; margin-bottom: 1rem; }
+    .testi-author { display: flex; align-items: center; gap: .8rem; }
+    .testi-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; background: var(--mist);
+    }
+    .testi-name { font-weight: 500; font-size: .88rem; }
+    .testi-place { font-size: .75rem; color: rgba(14,31,31,.45); }
+
+    /* ── ROOMS COMING SOON ── */
+    .rooms-coming-soon {
+      text-align: center; padding: 5rem 2rem;
+      background: var(--white); border-radius: 12px;
+      border: 2px dashed var(--mist); margin-top: 3rem;
+      max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .rcs-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+    .rcs-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 400; color: var(--ink); margin-bottom: 1rem;
+    }
+    .rcs-desc { font-size: 1rem; line-height: 1.7; color: rgba(14,31,31,.65); max-width: 420px; margin: 0 auto; }
+    .rcs-sub { font-size: .85rem; color: rgba(14,31,31,.4); margin-top: .8rem; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--sand); padding: 7rem 4rem; }
+    .testi-header { text-align: center; margin-bottom: 2.5rem; }
+    .testi-header .section-tag { justify-content: center; }
+    .testi-header .section-tag::before { display: none; }
+    .testi-subtitle { text-align: center; color: rgba(14,31,31,.5); font-size:.9rem; margin-top:.5rem; margin-bottom:2.5rem; }
+
+    .testi-stats-row {
+      display: flex; justify-content: center; gap: 3rem;
+      background: var(--ink); border-radius: 8px;
+      padding: 1.5rem 2rem; margin-bottom: 3rem; flex-wrap: wrap;
+    }
+    .tsr-item { text-align: center; }
+    .tsr-num { font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--gold); font-weight:700; line-height:1; }
+    .tsr-lbl { font-size:.68rem; text-transform:uppercase; letter-spacing:.12em; color:rgba(255,255,255,.4); margin-top:.3rem; }
+
+    /* Carousel wrapper */
+    .tcarousel-outer { position: relative; }
+    .tcarousel-viewport { overflow: hidden; border-radius: 8px; }
+    .tcarousel-track {
+      display: flex;
+      transition: transform .55s cubic-bezier(.4,0,.2,1);
+    }
+    .tcarousel-slide {
+      flex: 0 0 33.333%;
+      padding: 0 .7rem;
+      box-sizing: border-box;
+    }
+    @media(max-width:900px){ .tcarousel-slide{ flex:0 0 100%; } }
+    @media(min-width:901px) and (max-width:1100px){ .tcarousel-slide{ flex:0 0 50%; } }
+
+    .tcard {
+      background: var(--white); border-radius: 10px;
+      padding: 1.8rem; height: 100%;
+      box-shadow: 0 2px 16px rgba(14,31,31,.07);
+      position: relative; overflow: hidden;
+      transition: box-shadow .3s, transform .3s;
+    }
+    .tcard:hover { box-shadow: 0 10px 36px rgba(14,31,31,.12); transform: translateY(-3px); }
+    .tcard-tag {
+      display: inline-block; font-size:.65rem; letter-spacing:.1em; text-transform:uppercase;
+      padding:.28rem .65rem; border-radius:20px; font-weight:600; margin-bottom:.9rem;
+      color: var(--teal); background: var(--mist);
+    }
+    .tcard-stars { color:#f5a623; font-size:.88rem; margin-bottom:.8rem; }
+    .tcard-text {
+      font-family:'Cormorant Garamond',serif; font-style:italic;
+      font-size:1.05rem; line-height:1.75; color:rgba(14,31,31,.78); margin-bottom:1.4rem;
+    }
+    .tcard-author {
+      display:flex; align-items:center; gap:.8rem;
+      border-top:1px solid var(--mist); padding-top:1rem;
+    }
+    .tcard-av {
+      width:40px; height:40px; border-radius:50%; background:var(--mist);
+      display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0;
+    }
+    .tcard-name { font-weight:600; font-size:.85rem; color:var(--ink); }
+    .tcard-place { font-size:.72rem; color:rgba(14,31,31,.45); margin-top:.1rem; }
+    .tcard-date  { font-size:.68rem; color:rgba(14,31,31,.3); }
+
+    /* Nav buttons */
+    .tcarousel-btn {
+      position:absolute; top:50%; transform:translateY(-50%);
+      width:42px; height:42px; border-radius:50%;
+      border:1.5px solid rgba(14,31,31,.15); background:var(--white);
+      cursor:pointer; font-size:1rem; z-index:10;
+      display:flex; align-items:center; justify-content:center;
+      transition: background .2s, border-color .2s, transform .3s;
+      box-shadow: 0 2px 10px rgba(14,31,31,.08);
+    }
+    .tcarousel-btn:hover { background:var(--teal); border-color:var(--teal); color:white; transform:translateY(-50%) scale(1.05); }
+    .tcarousel-btn.prev { left:-22px; }
+    .tcarousel-btn.next { right:-22px; }
+
+    /* Dots */
+    .tcarousel-dots { display:flex; justify-content:center; gap:.45rem; margin-top:1.8rem; flex-wrap:wrap; }
+    .tdot {
+      width:8px; height:8px; border-radius:50%;
+      background:rgba(14,31,31,.15); cursor:pointer;
+      transition:background .25s, transform .25s;
+      border: none; padding: 0;
+    }
+    .tdot.active { background:var(--teal); transform:scale(1.35); }
+
+    /* Progress */
+    .tcarousel-progress { height:3px; background:rgba(14,31,31,.08); border-radius:2px; margin-top:1.4rem; overflow:hidden; }
+    .tcarousel-progress-fill { height:100%; background:var(--teal-lt); border-radius:2px; width:0; }
+
+    .testi-note { text-align:center; margin-top:1.4rem; font-size:.75rem; color:rgba(14,31,31,.35); font-style:italic; }
+
+    /* ── HOW TO BOOK ── */
+    #book-how { background: var(--white); text-align: center; }
+    #book-how .section-tag { justify-content: center; }
+    #book-how .section-tag::before { display: none; }
+    #book-how .section-title { margin-bottom: 1rem; }
+    #book-how > p { color: rgba(14,31,31,.6); max-width: 500px; margin: 0 auto 3.5rem; font-size: .95rem; }
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--mist); border-radius: 6px; overflow: hidden; }
+    .step { background: var(--white); padding: 2.5rem 1.5rem; text-align: center; }
+    .step-num {
+      width: 50px; height: 50px; border-radius: 50%;
+      background: var(--teal); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 1.3rem;
+      margin: 0 auto 1.2rem;
+    }
+    .step-icon { font-size: 1.6rem; margin-bottom: .8rem; }
+    .step-title { font-weight: 500; font-size: .92rem; margin-bottom: .5rem; }
+    .step-desc { font-size: .8rem; color: rgba(14,31,31,.55); line-height: 1.6; }
+
+    /* ── LOCATION ── */
+    #location { background: var(--sand); display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .location-map {
+      aspect-ratio: 1; background: var(--mist);
+      border-radius: 6px; overflow: hidden; position: relative;
+    }
+    .map-static-wrap {
+      display: block; width: 100%; aspect-ratio: 1;
+      border-radius: 6px; overflow: hidden; text-decoration: none;
+      position: relative; background: #e8f0ef;
+      transition: box-shadow .3s;
+    }
+    .map-static-wrap:hover { box-shadow: 0 12px 40px rgba(14,31,31,.15); }
+    .map-bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(42,157,143,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42,157,143,.08) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .map-bg-grid::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 60%, rgba(42,157,143,.12) 0%, transparent 70%),
+        linear-gradient(135deg, #d4e8e8 0%, #c2dada 40%, #b8d0d0 100%);
+    }
+    /* Decorative road lines */
+    .map-bg-grid::after {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to right, transparent 20%, rgba(255,255,255,.5) 20%, rgba(255,255,255,.5) 21%, transparent 21%),
+        linear-gradient(to bottom, transparent 40%, rgba(255,255,255,.4) 40%, rgba(255,255,255,.4) 41%, transparent 41%),
+        linear-gradient(45deg, transparent 55%, rgba(255,255,255,.3) 55%, rgba(255,255,255,.3) 56%, transparent 56%);
+    }
+    .map-static-inner {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: .6rem;
+      padding: 2rem; text-align: center;
+      background: rgba(14,31,31,.45);
+      border-radius: 6px;
+    }
+    .map-pin-icon { font-size: 2.8rem; filter: drop-shadow(0 4px 8px rgba(14,31,31,.2)); animation: pinBounce 2s ease-in-out infinite; }
+    @keyframes pinBounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+    .map-location-name { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:#ffffff; text-shadow: 0 1px 4px rgba(0,0,0,.4); }
+    .map-location-addr { font-size:.8rem; color:rgba(255,255,255,.85); line-height:1.5; text-shadow: 0 1px 3px rgba(0,0,0,.4); }
+    .map-open-btn {
+      margin-top:.5rem; background:var(--teal); color:white;
+      padding:.55rem 1.3rem; border-radius:4px; font-size:.78rem;
+      font-weight:500; letter-spacing:.05em;
+      transition: background .2s, transform .2s;
+    }
+    .map-static-wrap:hover .map-open-btn { background:var(--teal-lt); transform:translateY(-2px); }
+    .location-details .section-title { margin-bottom: 2rem; }
+    .location-info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .loc-item { display: flex; align-items: flex-start; gap: 1rem; }
+    .loc-icon {
+      width: 44px; height: 44px; background: var(--teal);
+      border-radius: 4px; display: flex; align-items: center;
+      justify-content: center; font-size: 1.1rem; flex-shrink: 0; color: white;
+    }
+    .loc-label { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(14,31,31,.45); }
+    .loc-val { font-size: .95rem; color: var(--ink); margin-top: .2rem; font-weight: 500; }
+
+    /* ── CONTACT / CTA ── */
+    #contact {
+      background: var(--ink);
+      text-align: center; padding: 8rem 4rem;
+    }
+    .contact-eyebrow {
+      font-size: .72rem; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+    }
+    .contact-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      color: var(--white); font-weight: 400; line-height: 1.15;
+      max-width: 700px; margin: 0 auto 1.5rem;
+    }
+    .contact-title em { font-style: italic; color: var(--gold); }
+    .contact-sub { color: rgba(255,255,255,.55); max-width: 500px; margin: 0 auto 3rem; line-height: 1.7; }
+    .contact-cards {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; max-width: 860px; margin: 0 auto 3rem;
+    }
+    .contact-card {
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+      border-radius: 6px; padding: 2rem;
+      transition: background .2s, border-color .2s;
+    }
+    .contact-card:hover { background: rgba(255,255,255,.08); border-color: var(--gold); }
+    .cc-icon { font-size: 1.8rem; margin-bottom: .8rem; }
+    .cc-label { font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: .4rem; }
+    .cc-val { font-size: 1rem; color: var(--white); font-weight: 500; }
+    .cc-val a { color: var(--gold); text-decoration: none; }
+    .cc-val a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080f0f; padding: 3rem 4rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-weight: 600;
+      font-size: 1.3rem; color: var(--white);
+    }
+    .footer-logo span { color: var(--gold); font-style: normal; }
+    .footer-copy { font-size: .75rem; color: rgba(255,255,255,.35); text-align: center; }
+    .footer-links { display: flex; gap: 2rem; }
+    .footer-links a { font-size: .75rem; color: rgba(255,255,255,.4); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: var(--gold); }
+
+    /* ── WHATSAPP FLOAT ── */
+    .whatsapp-float {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+      background: #25d366; color: white;
+      width: 58px; height: 58px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,.5); }
+    .whatsapp-float::before {
+      content: ''; position: absolute;
+      width: 100%; height: 100%; border-radius: 50%;
+      background: rgba(37,211,102,.4);
+      animation: waPulse 2s ease-out infinite;
+    }
+    @keyframes waPulse {
+      0%   { transform: scale(1); opacity: .7; }
+      100% { transform: scale(1.7); opacity: 0; }
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      nav.scrolled { padding: .9rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 5rem 1.5rem; }
+      #about { grid-template-columns: 1fr; gap: 3rem; }
+      .about-badge { bottom: 1rem; left: 1rem; }
+      .exp-grid { grid-template-columns: 1fr; }
+      .rooms-grid { grid-template-columns: 1fr; }
+      #why { grid-template-columns: 1fr; gap: 3rem; }
+      .why-stat-float { right: 0; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      #location { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-cards { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .hero-actions { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/918431023964" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">Honnavar <span>Boating</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experiences">Experiences</a></li>
+      <li><a href="#rooms">Rooms</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="tel:918431023964" class="nav-cta">📞 Book Now</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-video-wrapper">
+      <video id="hero-video" autoplay muted loop playsinline>
+        <source src="Video-912.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Honnavar, Karnataka · Est. Backwater Escapes</p>
+      <h1 class="hero-title">Where the River<br>Meets the <em>Sea</em></h1>
+      <p class="hero-sub">Authentic backwater boating in the heart of coastal Karnataka</p>
+      <div class="hero-actions">
+        <a href="tel:918431023964" class="btn-primary">🚣 Book a Ride</a>
+        <a href="#experiences" class="btn-outline">Explore Experiences</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-item reveal">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Happy Tourists</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">4.9★</div>
+      <div class="stat-label">Average Rating</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">6+</div>
+      <div class="stat-label">Unique Experiences</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Years Serving</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-text reveal">
+      <p class="section-tag">Our Story</p>
+      <h2 class="section-title">Untouched backwaters,<br><em>authentic experiences</em></h2>
+      <p>Honnavar is one of Karnataka's best-kept secrets — a pristine coastal town where the Sharavathi river meets the Arabian Sea. We've been guiding travellers through these enchanting backwaters for over a decade.</p>
+      <p>Whether you're seeking a peaceful sunrise boat ride, an adventurous fishing expedition, or a comfortable stay in our river-facing rooms — we promise experiences that are genuine, safe, and unforgettable.</p>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <div class="highlight-icon">🌅</div>
+          <div class="highlight-title">Sunrise Rides</div>
+          <div class="highlight-desc">Golden hour on the water</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🌿</div>
+          <div class="highlight-title">Mangrove Tours</div>
+          <div class="highlight-desc">Pristine ecosystem</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🚣</div>
+          <div class="highlight-title">Backwater Tours</div>
+          <div class="highlight-desc">Explore hidden inlets</div>
+        </div>
+        <div class="highlight-card">
+          <div class="highlight-icon">🌇</div>
+          <div class="highlight-title">Sunset Cruises</div>
+          <div class="highlight-desc">Golden sky on water</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual reveal">
+      <img src="IMG-20260316-WA0005.jpg" alt="View from the boat — Honnavar Backwaters" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px;display:block;">
+      <div class="about-badge">
+        <div class="badge-num">10+</div>
+        <div class="badge-txt">Years of Experience</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCES -->
+  <section id="experiences">
+    <div class="experiences-header reveal">
+      <p class="section-tag">What We Offer</p>
+      <h2 class="section-title">Curated <em>Experiences</em></h2>
+      <p style="color:rgba(14,31,31,.6); margin-top:1rem; font-size:.95rem; line-height:1.7;">
+        Every experience is designed to connect you with the natural beauty of Honnavar's backwaters in an authentic way.
+      </p>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <div class="exp-img boat"><span>🚣</span><span class="exp-badge">Popular</span></div>
+        <div class="exp-body">
+          <h3 class="exp-title">Backwater Boat Tour</h3>
+          <p class="exp-desc">Glide through calm backwaters surrounded by lush greenery, passing local fishing villages and hidden inlets of the Sharavathi river.</p>
+          <div class="exp-meta">
+            <span>⏱ 2–3 hrs</span>
+            <span>📅 Available Daily</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-img sunset"><span>🌅</span><span class="exp-badge">Scenic</span></div>
+        <div class="exp-body">
+          <h3 class="exp-title">Sunset Cruise</h3>
+          <p class="exp-desc">Watch the Arabian Sea skyline turn gold as you drift on the river during the most magical hour of the day.</p>
+          <div class="exp-meta">
+            <span>⏱ 1–2 hrs</span>
+            <span>🕕 Evening</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-img sunrise"><span>🌄</span></div>
+        <div class="exp-body">
+          <h3 class="exp-title">Sunrise Boat Ride</h3>
+          <p class="exp-desc">Wake up early and experience the river wrapped in mist and golden light — serene, peaceful, and deeply breathtaking.</p>
+          <div class="exp-meta">
+            <span>⏱ 1–2 hrs</span>
+            <span>🌅 Early Morning</span>
+          </div>
+        </div>
+      </div>
+      <div class="exp-card reveal">
+        <div class="exp-img mangrove"><span>🌿</span><span class="exp-badge">Eco</span></div>
+        <div class="exp-body">
+          <h3 class="exp-title">Mangrove Safari</h3>
+          <p class="exp-desc">Venture deep into dense mangrove forest corridors by boat and discover a truly unique and untouched coastal ecosystem.</p>
+          <div class="exp-meta">
+            <span>⏱ 2–3 hrs</span>
+            <span>📅 Available Daily</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <p class="section-tag reveal">Visual Journey</p>
+    <h2 class="section-title reveal">The Beauty of <em>Honnavar</em></h2>
+    <p class="gallery-intro reveal">Every frame straight from the backwaters — real boats, real light, real Honnavar.</p>
+
+    <div class="gallery-grid">
+
+      <div class="gallery-item gi-1 reveal">
+        <span class="gallery-video-badge">▶ &nbsp;Video</span>
+        <video autoplay muted loop playsinline>
+          <source src="If_peace_had_a_location__it_would_be_Honnavar__honnavar__travel__explorer__nature__instamood.mp4" type="video/mp4">
+        </video>
+        <div class="gallery-label">Honnavar — Peace on Water</div>
+      </div>
+
+      <div class="gallery-item gi-2 reveal">
+        <img src="get (4).jpeg" alt="Sunset from the boat bow">
+        <div class="gallery-label">Sunset from the Boat</div>
+      </div>
+
+      <div class="gallery-item gi-3 reveal">
+        <img src="IMG-20260316-WA0005.jpg" alt="Backwater boat ride daytime">
+        <div class="gallery-label">Backwater Ride</div>
+      </div>
+
+      <div class="gallery-item gi-4 reveal">
+        <img src="IMG-20260316-WA0006.jpg" alt="On the boat — flowers and river">
+        <div class="gallery-label">On the Water</div>
+      </div>
+
+      <div class="gallery-item gi-5 reveal">
+        <img src="IMG-20260316-WA0003.jpg" alt="Lily pads — Lotus Point">
+        <div class="gallery-label">Lotus Point</div>
+      </div>
+
+      <div class="gallery-item gi-6 reveal">
+        <img src="IMG-20260316-WA0004.jpg" alt="Flowers and river reflection">
+        <div class="gallery-label">River Reflections</div>
+      </div>
+
+      <div class="gallery-item gi-7 reveal">
+        <img src="get.jpeg" alt="Honnavara — Karnataka's Best Kept Secret">
+        <div class="gallery-label">Karnataka's Best Kept Secret</div>
+      </div>
+
+      <div class="gallery-item gi-8 reveal">
+        <img src="get (3).jpeg" alt="Backwater sunset cruise">
+        <div class="gallery-label">Evening Cruise</div>
+      </div>
+
+      <div class="gallery-item gi-9 reveal">
+        <img src="get (2).jpeg" alt="Boats at the jetty golden hour">
+        <div class="gallery-label">Boats at the Jetty</div>
+      </div>
+
+      <div class="gallery-item gi-10 reveal">
+        <img src="get (1).jpeg" alt="Boats under palm trees at sunset">
+        <div class="gallery-label">Golden Hour</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ROOMS -->
+  <section id="rooms">
+    <div class="rooms-header reveal" style="text-align:center; max-width:650px; margin:0 auto;">
+      <p class="section-tag" style="justify-content:center;">
+        <span style="width:30px;height:1px;background:var(--teal-lt);display:inline-block;margin-right:.8rem;vertical-align:middle;"></span>
+        Stay With Us
+      </p>
+      <h2 class="section-title">River-Facing <em>Rooms</em></h2>
+    </div>
+    <div class="rooms-coming-soon reveal">
+      <div class="rcs-icon">🛏️</div>
+      <h3 class="rcs-title">Coming Soon</h3>
+      <p class="rcs-desc">We're getting our riverside rooms ready to give you the most immersive Honnavar experience possible. Stay tuned — details dropping soon!</p>
+      <p class="rcs-sub">In the meantime, feel free to call us for accommodation queries.</p>
+      <a href="tel:918431023964" class="btn-primary" style="margin-top:1.8rem; display:inline-flex;">📞 Call for Details</a>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section id="why">
+    <div class="reveal">
+      <p class="section-tag">Why Choose Us</p>
+      <h2 class="section-title">Real people,<br><em>real experiences</em></h2>
+      <p>We're not a resort chain. We're a local family business with deep roots in Honnavar — and that makes all the difference.</p>
+      <ul class="why-list">
+        <li class="why-item">
+          <span class="why-icon">🛡️</span>
+          <div class="why-text">
+            <strong>Licensed & Safe</strong>
+            <span>All boats are government-registered with life jackets and trained guides</span>
+          </div>
+        </li>
+        <li class="why-item">
+          <span class="why-icon">🌿</span>
+          <div class="why-text">
+            <strong>Eco-Friendly</strong>
+            <span>We operate with minimal environmental impact and support local conservation</span>
+          </div>
+        </li>
+        <li class="why-item">
+          <span class="why-icon">👨‍👩‍👧</span>
+          <div class="why-text">
+            <strong>Family-Owned & Local</strong>
+            <span>Your money supports local families — not a big corporation</span>
+          </div>
+        </li>
+        <li class="why-item">
+          <span class="why-icon">📞</span>
+          <div class="why-text">
+            <strong>24/7 Support</strong>
+            <span>We're always reachable on WhatsApp or phone for bookings and queries</span>
+          </div>
+        </li>
+        <li class="why-item">
+          <span class="why-icon">🍛</span>
+          <div class="why-text">
+            <strong>Authentic Local Food</strong>
+            <span>Fresh coastal Karnataka cuisine prepared daily with locally sourced ingredients</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="why-visual reveal">
+      <img src="IMG-20260316-WA0004.jpg" alt="Honnavar Backwater — Flowers and River" style="width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px;display:block;">
+      <div class="why-stat-float">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Happy Visitors</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="testi-header reveal">
+      <p class="section-tag">What Guests Say</p>
+      <h2 class="section-title">Stories from the <em>Water</em></h2>
+    </div>
+    <p class="testi-subtitle reveal">Real reviews from real visitors · auto-rotating every 10 seconds</p>
+
+    <div class="testi-stats-row reveal">
+      <div class="tsr-item"><div class="tsr-num" id="reviewCount">120+</div><div class="tsr-lbl">Total Reviews</div></div>
+      <div class="tsr-item"><div class="tsr-num">4.9 ★</div><div class="tsr-lbl">Average Rating</div></div>
+      <div class="tsr-item"><div class="tsr-num">100%</div><div class="tsr-lbl">Recommend Us</div></div>
+    </div>
+
+    <div class="tcarousel-outer reveal">
+      <button class="tcarousel-btn prev" id="tcPrev">&#8592;</button>
+      <div class="tcarousel-viewport">
+        <div class="tcarousel-track" id="tcTrack"></div>
+      </div>
+      <button class="tcarousel-btn next" id="tcNext">&#8594;</button>
+    </div>
+
+    <div class="tcarousel-dots" id="tcDots"></div>
+    <div class="tcarousel-progress"><div class="tcarousel-progress-fill" id="tcProgress"></div></div>
+    <p class="testi-note" id="tcNote"></p>
+  </section>
+
+  <!-- HOW TO BOOK -->
+  <section id="book-how">
+    <p class="section-tag reveal">Easy Process</p>
+    <h2 class="section-title reveal">How to <em>Book</em></h2>
+    <p>Booking a trip with us takes less than 2 minutes.</p>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-icon">📞</div>
+        <div class="step-title">Call or WhatsApp</div>
+        <div class="step-desc">Reach us at +91 84310 23964 anytime — we respond quickly</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-icon">📅</div>
+        <div class="step-title">Pick a Date & Experience</div>
+        <div class="step-desc">Choose from our 6 experiences and your preferred date and time</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-icon">✅</div>
+        <div class="step-title">Confirm Booking</div>
+        <div class="step-desc">A small advance secures your booking — balance paid on arrival</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-icon">🚣</div>
+        <div class="step-title">Arrive & Enjoy</div>
+        <div class="step-desc">Show up at our jetty and let the backwaters do the rest</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location">
+    <div class="location-details reveal">
+      <p class="section-tag">Find Us</p>
+      <h2 class="section-title">We're in the heart of<br><em>Honnavar</em></h2>
+      <div class="location-info" style="margin-top:2rem;">
+        <div class="loc-item">
+          <div class="loc-icon">📍</div>
+          <div>
+            <div class="loc-label">Address</div>
+            <div class="loc-val">Church Rd, Honnavar,<br>Karnataka 581334</div>
+          </div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-icon">📞</div>
+          <div>
+            <div class="loc-label">Phone / WhatsApp</div>
+            <div class="loc-val"><a href="tel:918431023964" style="color:var(--teal);text-decoration:none;">+91 84310 23964</a></div>
+          </div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-icon">🕐</div>
+          <div>
+            <div class="loc-label">Operating Hours</div>
+            <div class="loc-val">6:00 AM – 7:00 PM · All Days</div>
+          </div>
+        </div>
+        <div class="loc-item">
+          <div class="loc-icon">🚗</div>
+          <div>
+            <div class="loc-label">Nearest Town</div>
+            <div class="loc-val">Honnavar Town Centre · 5 min walk</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://maps.app.goo.gl/rs2823qTKte5SfrU7" target="_blank" class="btn-primary" style="margin-top:2rem; display:inline-flex;">
+        📍 Get Directions
+      </a>
+    </div>
+    <div class="location-map reveal">
+      <a href="https://maps.app.goo.gl/rs2823qTKte5SfrU7" target="_blank" class="map-static-wrap">
+        <img src="IMG-20260316-WA0003.jpg" alt="Honnavar Location" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;border-radius:6px;">
+        <div class="map-static-inner">
+          <div class="map-pin-icon">📍</div>
+          <div class="map-location-name">Honnavar Boating Services</div>
+          <div class="map-location-addr">Church Rd, Honnavar, Karnataka 581334</div>
+          <div class="map-open-btn">Open in Google Maps ↗</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section id="contact">
+    <p class="contact-eyebrow reveal">Ready to Go?</p>
+    <h2 class="contact-title reveal">Your <em>backwater escape</em><br>is one call away</h2>
+    <p class="contact-sub reveal">Don't overthink it. Just pick up the phone and we'll take care of everything else.</p>
+    <div class="contact-cards reveal">
+      <div class="contact-card">
+        <div class="cc-icon">📞</div>
+        <div class="cc-label">Call Us</div>
+        <div class="cc-val"><a href="tel:918431023964">+91 84310 23964</a></div>
+      </div>
+      <div class="contact-card">
+        <div class="cc-icon">💬</div>
+        <div class="cc-label">WhatsApp</div>
+        <div class="cc-val"><a href="https://wa.me/918431023964" target="_blank">Message Us Now</a></div>
+      </div>
+      <div class="contact-card">
+        <div class="cc-icon">📍</div>
+        <div class="cc-label">Visit Us</div>
+        <div class="cc-val" style="font-size:.85rem;">Church Rd, Honnavar,<br>Karnataka 581334</div>
+      </div>
+    </div>
+    <a href="tel:918431023964" class="btn-primary reveal" style="font-size:1rem; padding:1rem 2.8rem;">
+      🚣 Book Your Experience Today
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Honnavar <span>Boating</span></div>
+    <p class="footer-copy">© 2015 Honnavar Boating Services · All rights reserved<br>
+      <span style="font-size:.7rem; opacity:.6;">Crafted by Rakshit Bhat</span>
+    </p>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#experiences">Experiences</a>
+      <a href="#rooms">Rooms</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll nav
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => obs.observe(el));
+
+    // Stagger grid children
+    document.querySelectorAll('.exp-grid, .rooms-grid, .stats-bar, .contact-cards').forEach(grid => {
+      grid.querySelectorAll('.exp-card, .room-card, .stat-item, .contact-card').forEach((card, i) => {
+        card.style.transitionDelay = (i * 0.1) + 's';
+      });
+    });
+
+    // Stagger grid children
+    document.querySelectorAll('.exp-grid, .stats-bar, .contact-cards').forEach(grid => {
+      grid.querySelectorAll('.exp-card, .stat-item, .contact-card').forEach((card, i) => {
+        card.style.transitionDelay = (i * 0.1) + 's';
+      });
+    });
+
+    // ── REVIEWS ──
+    const REVIEWS = [
+      // Backwater Tour
+      {n:"Priya Sharma",p:"Bengaluru, Karnataka",t:"The backwater boat tour was absolutely surreal. The guide pointed out every little detail along the river. Completely mesmerizing — easily the best part of our trip.",tag:"Backwater Tour",g:"F",d:"March 2025"},
+      {n:"Arvind Kulkarni",p:"Pune, Maharashtra",t:"Honestly the best few hours I've spent on any vacation. The boatman knew every bend and turn of the river. Honnavar is a hidden gem!",tag:"Backwater Tour",g:"M",d:"February 2025"},
+      {n:"Deepa Menon",p:"Kochi, Kerala",t:"We were a large group and the boats were spacious and safe. The guide was super knowledgeable and so warm. Would do it again tomorrow without hesitation.",tag:"Backwater Tour",g:"F",d:"January 2025"},
+      {n:"Suresh Patil",p:"Kolhapur, Maharashtra",t:"Took the backwater tour on a spontaneous decision and it turned out to be the highlight of our entire trip. Unbeatable experience.",tag:"Backwater Tour",g:"M",d:"December 2024"},
+      {n:"Ananya Bose",p:"Kolkata, West Bengal",t:"The stillness of the backwaters in the afternoon is something I'll never forget. No noise, no crowds — just nature and the gentle sound of oars.",tag:"Backwater Tour",g:"F",d:"November 2024"},
+      {n:"Kiran Hegde",p:"Mangalore, Karnataka",t:"As a Kannadiga myself, I'm embarrassed it took me so long to discover Honnavar's backwaters. Absolutely world-class experience right here at home.",tag:"Backwater Tour",g:"M",d:"October 2024"},
+      {n:"Meera Joshi",p:"Mumbai, Maharashtra",t:"The boat glided through so silently. It felt like we were the only people in the world. Magical and deeply calming.",tag:"Backwater Tour",g:"F",d:"October 2024"},
+      {n:"Vikram Reddy",p:"Hyderabad, Telangana",t:"Booking was instant via WhatsApp and the experience exceeded every expectation. The backwaters are pristine and completely untouched.",tag:"Backwater Tour",g:"M",d:"September 2024"},
+      {n:"Nandita Rao",p:"Chennai, Tamil Nadu",t:"Went with my parents who are in their 60s — the guide was extra careful and attentive with them. They absolutely loved every moment.",tag:"Backwater Tour",g:"F",d:"September 2024"},
+      {n:"Harish Shenoy",p:"Udupi, Karnataka",t:"The stretch near the estuary where the river meets the sea is beyond breathtaking. Worth every rupee and every minute of travel.",tag:"Backwater Tour",g:"M",d:"August 2024"},
+      {n:"Rashmi Iyer",p:"Mysuru, Karnataka",t:"Took my 8-year-old daughter along. She was thrilled spotting fish and crabs from the boat. Absolutely family-friendly and safe.",tag:"Backwater Tour",g:"F",d:"August 2024"},
+      {n:"Gopal Nair",p:"Thiruvananthapuram, Kerala",t:"Having grown up near Kerala backwaters, I thought nothing could impress me. Honnavar proved me completely wrong. Different vibe entirely.",tag:"Backwater Tour",g:"M",d:"July 2024"},
+      {n:"Shalini Verma",p:"Delhi",t:"First time in coastal Karnataka and this boat tour set the perfect tone for the trip. The guide shared local history and folklore too.",tag:"Backwater Tour",g:"F",d:"July 2024"},
+      {n:"Ravi Kamath",p:"Sirsi, Karnataka",t:"Visited Honnavar many times but only discovered the boating service recently. Wish I had known earlier. Absolutely brilliant.",tag:"Backwater Tour",g:"M",d:"June 2024"},
+      {n:"Pooja Desai",p:"Ahmedabad, Gujarat",t:"The boats are clean, life jackets fit perfectly, and the guide spoke excellent English. Felt completely safe and cared for throughout.",tag:"Backwater Tour",g:"F",d:"June 2024"},
+      {n:"Chandan Kulkarni",p:"Belagavi, Karnataka",t:"The entire crew is professional, friendly, and deeply passionate about their river. You can tell they genuinely love what they do.",tag:"Backwater Tour",g:"M",d:"May 2024"},
+      {n:"Abhinav Joshi",p:"Nagpur, Maharashtra",t:"The guide pointed out a sea turtle near the estuary! An absolutely wild encounter. I didn't expect anything like this on a backwater tour.",tag:"Backwater Tour",g:"M",d:"April 2024"},
+      {n:"Manjunath Bhat",p:"Sirsi, Karnataka",t:"The boating service operates with so much discipline — punctual, safe, and incredibly courteous. Excellent local business.",tag:"Backwater Tour",g:"M",d:"March 2024"},
+      {n:"Jayashree Bhat",p:"Kundapur, Karnataka",t:"We brought our 70-year-old grandparents and they said it was the most peaceful thing they'd experienced in years. So much gratitude.",tag:"Backwater Tour",g:"F",d:"February 2024"},
+      {n:"Rohit Sinha",p:"Patna, Bihar",t:"Coming from Bihar, I had no context for backwater experiences. This was a complete revelation. The guide was so warm and welcoming.",tag:"Backwater Tour",g:"M",d:"January 2024"},
+      {n:"Vinod Shetty",p:"Mangalore, Karnataka",t:"Took my whole office team for the backwater tour as a team outing. Everyone agrees it was the best team event we've ever done.",tag:"Backwater Tour",g:"M",d:"December 2023"},
+      {n:"Arun Bhat",p:"Honnavar, Karnataka",t:"I'm a local and I refer every visitor to Honnavar Boating Services without hesitation. They represent our town beautifully.",tag:"Backwater Tour",g:"M",d:"November 2023"},
+      {n:"Nitesh Prabhu",p:"Goa",t:"I've done boat tours in Kerala, Andaman, and even Thailand. Honnavar backwaters hold their own against all of them. World-class.",tag:"Backwater Tour",g:"M",d:"October 2023"},
+      {n:"Padmini Rao",p:"Chennai, Tamil Nadu",t:"The boat is traditional and wooden — there's a real charm to it. No loud motors, no rush. Just gliding through the most peaceful water.",tag:"Backwater Tour",g:"F",d:"September 2023"},
+      {n:"Vidya Hegde",p:"Dharwad, Karnataka",t:"The guide narrated local legends and stories of the river during the tour. It elevated the whole experience beyond just a boat ride.",tag:"Backwater Tour",g:"F",d:"August 2023"},
+      {n:"Bhavani Shankar",p:"Hyderabad, Telangana",t:"Rarely do I write reviews but this deserves one. The Honnavar backwater experience is genuinely world-class — unpretentious and pure.",tag:"Backwater Tour",g:"F",d:"July 2023"},
+
+      // Sunset Cruise
+      {n:"Rahul Mehta",p:"Mumbai, Maharashtra",t:"The sunset cruise was pure romance. The sky turned a deep orange as we floated on the river. My wife and I will never forget this evening.",tag:"Sunset Cruise",g:"M",d:"March 2025"},
+      {n:"Sneha Krishnan",p:"Chennai, Tamil Nadu",t:"The most beautiful sunset I've ever witnessed — and I've been to Santorini! The Honnavar river sunset is something else entirely.",tag:"Sunset Cruise",g:"F",d:"February 2025"},
+      {n:"Aditya Shah",p:"Surat, Gujarat",t:"We had hot tea on the boat during the sunset. The guide knew exactly when the light would be perfect. Absolutely unforgettable.",tag:"Sunset Cruise",g:"M",d:"January 2025"},
+      {n:"Lakshmi Devi",p:"Bengaluru, Karnataka",t:"The colours on the water during sunset — gold, orange, pink — looked like a painting. Every single photo came out frame-worthy.",tag:"Sunset Cruise",g:"F",d:"December 2024"},
+      {n:"Sameer Patel",p:"Vadodara, Gujarat",t:"Came for the sunset cruise and stayed for the stars. Once the sun went down, the guide let us float and the sky was absolutely incredible.",tag:"Sunset Cruise",g:"M",d:"November 2024"},
+      {n:"Divya Nambiar",p:"Kozhikode, Kerala",t:"I proposed to my girlfriend during the sunset cruise. She said yes! The guide even helped with the setup. Truly magical people.",tag:"Sunset Cruise",g:"M",d:"October 2024"},
+      {n:"Kavitha Pillai",p:"Ernakulam, Kerala",t:"The reflections on the calm water during golden hour are simply breathtaking. This kind of memory stays with you forever.",tag:"Sunset Cruise",g:"F",d:"September 2024"},
+      {n:"Nikhil Gawde",p:"Goa",t:"I live in Goa and see sunsets daily but nothing prepared me for Honnavar's river sunset. The tranquility is on another level.",tag:"Sunset Cruise",g:"M",d:"August 2024"},
+      {n:"Aparna Nair",p:"Palakkad, Kerala",t:"We went on our anniversary. The guide gave us complete privacy and space. The most romantic evening of our marriage.",tag:"Sunset Cruise",g:"F",d:"July 2024"},
+      {n:"Santosh Kumar",p:"Bengaluru, Karnataka",t:"The sunset cruise packs a lifetime of beauty into 90 minutes. Time your Honnavar visit for a clear evening — you won't regret it.",tag:"Sunset Cruise",g:"M",d:"June 2024"},
+      {n:"Roshni Fernandes",p:"Mangalore, Karnataka",t:"Honnavar is my annual solo travel destination now. The sunset cruise is why I keep coming back year after year without fail.",tag:"Sunset Cruise",g:"F",d:"May 2024"},
+      {n:"Divyashree Kumar",p:"Bengaluru, Karnataka",t:"My Instagram reel from the sunset cruise went viral. People keep asking where this magical place is. Honnavar is truly stunning.",tag:"Sunset Cruise",g:"F",d:"March 2024"},
+      {n:"Manoj Shenoy",p:"Sirsi, Karnataka",t:"Booked last minute over WhatsApp and within 15 minutes we had a confirmed slot. Incredible responsiveness. The ride itself was superb.",tag:"Sunset Cruise",g:"M",d:"September 2023"},
+
+      // Sunrise Ride
+      {n:"Kavya Reddy",p:"Hyderabad, Telangana",t:"Set my alarm for 5 AM with zero regrets. Watching the sun rise over the river from a small wooden boat is a completely spiritual experience.",tag:"Sunrise Ride",g:"F",d:"March 2025"},
+      {n:"Girish Naik",p:"Belgaum, Karnataka",t:"The golden light on the water at sunrise is indescribable. I've been to Varanasi for the Ganga sunrise — this felt equally sacred.",tag:"Sunrise Ride",g:"M",d:"February 2025"},
+      {n:"Pavithra Sriram",p:"Coimbatore, Tamil Nadu",t:"The mist on the river at dawn, the first birds waking up, the orange sky — it was like watching the world being born. Truly ethereal.",tag:"Sunrise Ride",g:"F",d:"January 2025"},
+      {n:"Sunil Bhat",p:"Honnavar, Karnataka",t:"I live here and still do the sunrise ride whenever I have guests visiting. It never gets old. The guide is a local legend.",tag:"Sunrise Ride",g:"M",d:"December 2024"},
+      {n:"Nisha Agarwal",p:"Jaipur, Rajasthan",t:"Came for a work conference and snuck away for the sunrise ride. Best decision of the trip. Worth every sleepy eye.",tag:"Sunrise Ride",g:"F",d:"November 2024"},
+      {n:"Balachandran Pillai",p:"Kozhikode, Kerala",t:"The boat, the stillness, the light — it felt like meditation on water. I came back for a second sunrise ride the very next morning.",tag:"Sunrise Ride",g:"M",d:"October 2024"},
+      {n:"Tanvi Shah",p:"Mumbai, Maharashtra",t:"I travel a lot for photography. The Honnavar sunrise boat is genuinely one of the top five photography experiences I've ever had.",tag:"Sunrise Ride",g:"F",d:"September 2024"},
+      {n:"Krishnamurthy S",p:"Bengaluru, Karnataka",t:"Booked it on a whim, woke up not wanting to go, and then spent the entire hour wishing it would never end. Go for it — trust me.",tag:"Sunrise Ride",g:"M",d:"August 2024"},
+      {n:"Amrutha Nair",p:"Thrissur, Kerala",t:"Fish jumping as the sun rises, the light on the mangroves, fishermen starting their day — it's a beautiful slice of real local life.",tag:"Sunrise Ride",g:"F",d:"July 2024"},
+      {n:"Deepak Shetty",p:"Mangalore, Karnataka",t:"Did the sunrise ride on my birthday. The guide surprised me with local sweets and a warm wish. That personal touch means everything.",tag:"Sunrise Ride",g:"M",d:"June 2024"},
+      {n:"Prashanth Naik",p:"Karwar, Karnataka",t:"The morning mist, the silence, the reflection of trees in still water — the sunrise ride is pure poetry. Nothing like it anywhere else.",tag:"Sunrise Ride",g:"M",d:"February 2024"},
+      {n:"Keerthana Rao",p:"Mysuru, Karnataka",t:"The boating experience awakened something in me — a connection to nature I'd forgotten about in city life. Truly therapeutic.",tag:"Sunrise Ride",g:"F",d:"December 2023"},
+      {n:"Shashank Pai",p:"Manipal, Karnataka",t:"Medical student here — used this trip to decompress after exams. The river did more for my mental health than any medicine ever could.",tag:"Sunrise Ride",g:"M",d:"August 2023"},
+
+      // Mangrove Safari
+      {n:"Dr. Arjun Menon",p:"Bengaluru, Karnataka",t:"As an environmental researcher, I was blown away by the health and diversity of the mangrove ecosystem here. Truly one of Karnataka's great natural treasures.",tag:"Mangrove Safari",g:"M",d:"March 2025"},
+      {n:"Radha Krishnan",p:"Madurai, Tamil Nadu",t:"The mangrove tunnel section — where branches close over the boat — is absolutely magical. Felt like entering a green cathedral.",tag:"Mangrove Safari",g:"F",d:"February 2025"},
+      {n:"Tarun Verma",p:"New Delhi",t:"I had no idea mangrove forests could be this beautiful. The biodiversity is incredible — crabs, fish, birds all coexisting in perfect harmony.",tag:"Mangrove Safari",g:"M",d:"January 2025"},
+      {n:"Shobha Nair",p:"Kochi, Kerala",t:"The guide explained the role of each mangrove species. My kids came away with real respect for the environment. Loved every second of it.",tag:"Mangrove Safari",g:"F",d:"December 2024"},
+      {n:"Ajay Shetty",p:"Udupi, Karnataka",t:"The mangrove safari is unlike the touristy backwater rides you find in Goa. This is real, raw, and completely natural. Highly authentic.",tag:"Mangrove Safari",g:"M",d:"November 2024"},
+      {n:"Meenakshi Iyer",p:"Chennai, Tamil Nadu",t:"Spotted mudskippers, fiddler crabs, and a large monitor lizard on the mangrove roots. Wildlife photography gold!",tag:"Mangrove Safari",g:"F",d:"October 2024"},
+      {n:"Sanjay Gowda",p:"Shimoga, Karnataka",t:"The guide knows every nook of the mangrove channels. He took us to spots that felt completely off the map. Absolutely extraordinary.",tag:"Mangrove Safari",g:"M",d:"September 2024"},
+      {n:"Usha Rao",p:"Pune, Maharashtra",t:"Booked the mangrove safari for my botany students. They were completely captivated. This is living education — far better than any textbook.",tag:"Mangrove Safari",g:"F",d:"August 2024"},
+      {n:"Rajendra Kamath",p:"Karwar, Karnataka",t:"The silence inside the mangrove forest is broken only by birdsong and water. Nothing about this feels commercial or staged. Pure and real.",tag:"Mangrove Safari",g:"M",d:"July 2024"},
+      {n:"Smitha Bhat",p:"Honnavar, Karnataka",t:"Took my international colleagues here and they were speechless. One of them said it reminded him of the Amazon. That's the level we're talking.",tag:"Mangrove Safari",g:"F",d:"June 2024"},
+      {n:"Nalini Sharma",p:"Jaipur, Rajasthan",t:"Came all the way from Rajasthan specifically for this. Completely authentic, untouched, and serene. Exactly as described.",tag:"Mangrove Safari",g:"F",d:"April 2024"},
+      {n:"Savitha Nayak",p:"Bengaluru, Karnataka",t:"We did the mangrove safari after heavy rains and the green was just otherworldly. The mudskippers were out in force. Phenomenal.",tag:"Mangrove Safari",g:"F",d:"October 2023"},
+      {n:"Sriram Krishnan",p:"Bengaluru, Karnataka",t:"Did the backwater tour and the mangrove safari back to back. Full day well spent. Both guides were absolutely brilliant. 10/10 for both.",tag:"Mangrove Safari",g:"M",d:"July 2023"},
+    ];
+
+    // Shuffle array
+    (function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} })(REVIEWS);
+
+    const tagColors = {"Backwater Tour":"#e2f5f5","Sunset Cruise":"#fff4e0","Sunrise Ride":"#fde8ff","Mangrove Safari":"#e6f7e6"};
+    const avM = ['👨','🧔','👨‍💼','🧑','👲','👨‍🦱','👨‍🦰'];
+    const avF = ['👩','👩‍💼','🧕','👩‍🦱','👩‍🦰','👩‍🌾','🧑‍🎤'];
+
+    const track    = document.getElementById('tcTrack');
+    const dotsWrap = document.getElementById('tcDots');
+    const progFill = document.getElementById('tcProgress');
+    const noteEl   = document.getElementById('tcNote');
+
+    if(noteEl) noteEl.textContent = REVIEWS.length + ' verified guest reviews — all about boating & on-water experiences';
+
+    function visCount(){ return window.innerWidth<=900?1:window.innerWidth<=1100?2:3; }
+
+    function buildCarousel(){
+      track.innerHTML=''; dotsWrap.innerHTML='';
+      const vis = visCount();
+      const slideW = 100 / vis;
+
+      REVIEWS.forEach((r,i)=>{
+        const slide = document.createElement('div');
+        slide.className = 'tcarousel-slide';
+        slide.style.flex = '0 0 ' + slideW + '%';
+        const bg  = tagColors[r.tag] || '#f0f0f0';
+        const av  = r.g==='F' ? avF[i%avF.length] : avM[i%avM.length];
+        slide.innerHTML = `<div class="tcard">
+          <span class="tcard-tag" style="background:${bg}">${r.tag}</span>
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">${r.t}</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:${bg}">${av}</div>
+            <div>
+              <div class="tcard-name">${r.n}</div>
+              <div class="tcard-place">${r.p}</div>
+              <div class="tcard-date">${r.d}</div>
+            </div>
+          </div>
+        </div>`;
+        track.appendChild(slide);
+      });
+
+      const pages = Math.ceil(REVIEWS.length / vis);
+      for(let i=0;i<pages;i++){
+        const d=document.createElement('button');
+        d.className='tdot'+(i===0?' active':'');
+        d.addEventListener('click',()=>goTo(i));
+        dotsWrap.appendChild(d);
+      }
+    }
+
+    let curPage = 0, autoTick, progAnim;
+
+    function totalPages(){ return Math.ceil(REVIEWS.length / visCount()); }
+
+    function goTo(p, animate=true){
+      curPage = (p + totalPages()) % totalPages();
+      const vis = visCount();
+      track.style.transition = animate ? 'transform .55s cubic-bezier(.4,0,.2,1)' : 'none';
+      track.style.transform = `translateX(-${curPage * vis * (100/vis)}%)`;
+      dotsWrap.querySelectorAll('.tdot').forEach((d,i)=>d.classList.toggle('active',i===curPage));
+    }
+
+    function startAuto(){
+      clearInterval(autoTick);
+      // reset progress bar
+      progFill.style.transition='none'; progFill.style.width='0%';
+      requestAnimationFrame(()=>{
+        requestAnimationFrame(()=>{
+          progFill.style.transition='width 10s linear'; progFill.style.width='100%';
+        });
+      });
+      autoTick = setInterval(()=>{ goTo(curPage+1); startAuto(); }, 10000);
+    }
+
+    document.getElementById('tcPrev').addEventListener('click',()=>{ goTo(curPage-1); startAuto(); });
+    document.getElementById('tcNext').addEventListener('click',()=>{ goTo(curPage+1); startAuto(); });
+
+    buildCarousel();
+    goTo(0, false);
+    startAuto();
+
+    window.addEventListener('resize',()=>{ buildCarousel(); goTo(0,false); startAuto(); });
+  </script>
+</body>
+</html>
